@@ -8,7 +8,7 @@ print(business.shape)
 print(business.head())
 print(business.info())
 
-# drop_cols = ["address", "attributes", "hours", "is_open", "latitude", "longitude", "postal code"]
+drop_cols = ["address", "attributes", "hours", "is_open", "latitude", "longitude", "name", "postal_code"]
 # # del business[drop_cols]
 # business = business.drop(drop_cols, axis=1)
 # # business = business.drop(["address", "attributes"], axis=1)
