@@ -1,6 +1,6 @@
 import numpy as np
 import pandas as pd
-import matplotlib.pyplot
+import matplotlib.pyplot as plt
 
 business = pd.read_json('JSON/business.json', lines=True)
 
