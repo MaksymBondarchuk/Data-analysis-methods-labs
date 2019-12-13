@@ -11,7 +11,7 @@ star_counts.sort_index().plot(kind='bar')
 # task, filter the 'text' column using the 'stars' column to create Series of good and bad review text
 # call the results good_review_text and bad_review_text, respectively
 # two lines of code here:
-good_review_text = reviews[reviews['stars'] == 5]['text']
+good_review_text = reviews[reviews['stars'] >= 5]['text']
 bad_review_text = reviews[reviews['stars'] <= 3]['text']
 
 # print(good_review_text.head(3))
@@ -43,5 +43,7 @@ bad_wordcloud = WordCloud(max_words=50).generate(bad_text)
 plt.imshow(bad_wordcloud, interpolation='bilinear')
 
 bad_stopwords = set(['pizza', 'food', 'order', 'place'])
-bad_stopwords.update(["and", "the", "to", "that", "as", "in", "it"])
+bad_stopwords.update(STOPWORDS)
 better_wordcloud = WordCloud(stopwords=bad_stopwords, max_words=50).generate(good_text)
+plt.imshow(better_wordcloud, interpolation='bilinear')
+better_wordcloud.to_file("better_wordcount.png")
